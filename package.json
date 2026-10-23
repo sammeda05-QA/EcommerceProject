@@ -1,0 +1,26 @@
+{
+  "name": "ecommerceproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammeda05-QA/EcommerceProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sammeda05-QA/EcommerceProject/issues"
+  },
+  "homepage": "https://github.com/sammeda05-QA/EcommerceProject#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5"
+  },
+  "dependencies": {
+    "typescript": "^7.0.2"
+  }
+}
