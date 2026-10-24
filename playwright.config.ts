@@ -1,4 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
+import path from 'path';
+
+const env = process.env.TEST_ENV || 'dev';
+dotenv.config({ path: path.resolve(__dirname, 'environment', `.env.${env}`) });
 
 /**
  * Read environment variables from file.
@@ -22,14 +28,14 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: 'allure-playwright',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+     baseURL: process.env.BASE_URL,
+ headless: true,
+  trace: 'on-first-retry',
+  screenshot: 'only-on-failure',
   },
 
   /* Configure projects for major browsers */
@@ -48,7 +54,7 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },*/
-    
+
 
     /* Test against mobile viewports. */
     // {

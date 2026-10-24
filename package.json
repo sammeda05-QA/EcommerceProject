@@ -18,7 +18,11 @@
   "homepage": "https://github.com/sammeda05-QA/EcommerceProject#readme",
   "devDependencies": {
     "@playwright/test": "^1.64.1",
-    "@types/node": "^26.6.5"
+    "@types/node": "^26.6.5",
+    "allure": "^3.22.1",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0",
+    "dotenv": "^18.0.9"
   },
   "dependencies": {
     "typescript": "^7.0.2"
