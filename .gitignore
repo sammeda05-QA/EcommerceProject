@@ -1,8 +1,15 @@
-
-# Playwright
+# Dependencies
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+
+# Playwright generated files
+playwright-report/
+test-results/
+
+# Allure generated files
+allure-results/
+allure-report/
+
+# Secrets
+.env
+.env.*
+!.env.example
