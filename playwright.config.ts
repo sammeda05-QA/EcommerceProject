@@ -1,6 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-dotenv.config();
+ import { defineConfig, devices } from '@playwright/test';
+ import dotenv from 'dotenv';
 import path from 'path';
 
 const env = process.env.TEST_ENV || 'dev';
@@ -28,14 +27,22 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'allure-playwright',
+ reporter: [
+  ['list'],
+  ['allure-playwright', { resultsDir: 'allure-results' }],
+],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-     baseURL: process.env.BASE_URL,
- headless: true,
-  trace: 'on-first-retry',
-  screenshot: 'only-on-failure',
+   //  baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+   // screenshot: 'only-on-failure',
+    //trace: 'retain-on-failure',
+    //video: 'retain-on-failure',
+
+      baseURL: process.env.BASE_URL,
+    screenshot:'on',
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+  
   },
 
   /* Configure projects for major browsers */
@@ -43,8 +50,8 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-/*
+    },/*
+
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
@@ -54,7 +61,6 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },*/
-
 
     /* Test against mobile viewports. */
     // {
