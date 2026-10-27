@@ -4,7 +4,7 @@ test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await RegisterUser.NewCustomerRegestration("TestUser","TestUser123@test.com");
+    await RegisterUser.NewCustomerRegestration("TestUser1","TestUser12345@test.com");
 
     await createNewUser.CreateNewUser("Test@123","Test","Testing","TestersPride","HAL 2nd stage"
         ,"Bihar","Gaya","123498","123456789"
@@ -16,4 +16,7 @@ test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
     await expect(SuccessMessage).toBeVisible();
 
+     await expect(page.getByText(" Logged in as ")).toBeVisible();
+
+    await expect(page.getByText("Account Deleted!")).toBeVisible();
 })
