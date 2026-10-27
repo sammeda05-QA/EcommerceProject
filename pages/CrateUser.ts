@@ -19,6 +19,8 @@ export class CreateNewUser{
         private readonly ZipCode:Locator;
         private readonly MobileNumber:Locator;
         private readonly CreateAccountBtn:Locator;
+                private readonly Continue:Locator;
+        private readonly deleteAccount:Locator;
 
     constructor(page:Page){
         this.page=page;
@@ -37,6 +39,9 @@ export class CreateNewUser{
         this.ZipCode=page.locator("#zipcode").first();
         this.MobileNumber=page.getByLabel("Mobile Number ");
         this.CreateAccountBtn=page.getByRole("button",{name:'Create Account'});
+           this.Continue=page.getByRole("link",{name:'Continue'}).first();
+        this.deleteAccount=page.getByRole("link",{name:' Delete Account'});
+
     }
 
 
@@ -58,6 +63,8 @@ export class CreateNewUser{
             await this.ZipCode.fill(zipcode);
             await this.MobileNumber.fill(mobilenumber);
             await this.CreateAccountBtn.click();
+            await this.Continue.click();
+            await this.deleteAccount.click();
 
 
     }
