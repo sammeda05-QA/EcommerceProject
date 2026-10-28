@@ -63,13 +63,17 @@ export class CreateNewUser{
             await this.ZipCode.fill(zipcode);
             await this.MobileNumber.fill(mobilenumber);
             await this.CreateAccountBtn.click();
-            await this.Continue.click();
-            await this.deleteAccount.click();
-
+  
 
     }
 
+    async ContinueToHomePage(){
+            await this.Continue.click();
+          
 
-
+    }
+    async DeleteAccount(){
+        await this.deleteAccount.click();
+    }
 
 }

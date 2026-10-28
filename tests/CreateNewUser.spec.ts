@@ -4,7 +4,7 @@ test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await RegisterUser.NewCustomerRegestration("TestUser1","TestUser12345@test.com");
+    await RegisterUser.NewCustomerRegestration("TestUser2","TestUser123456@test.com");
 
     await createNewUser.CreateNewUser("Test@123","Test","Testing","TestersPride","HAL 2nd stage"
         ,"Bihar","Gaya","123498","123456789"
@@ -16,7 +16,15 @@ test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
     await expect(SuccessMessage).toBeVisible();
 
+    await createNewUser.ContinueToHomePage();
+
      await expect(page.getByText(" Logged in as ")).toBeVisible();
 
+    await createNewUser.DeleteAccount();
+
+    await expect(page).toHaveURL("https://automationexercise.com/delete_account");
+
     await expect(page.getByText("Account Deleted!")).toBeVisible();
+
+    
 })
