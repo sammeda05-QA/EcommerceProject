@@ -1,0 +1,15 @@
+{
+"firstUser":
+{"name":"TestUser10","Email":"TestUser10@gmail.com","Password":"TestUser@10",
+"FirstName":"John","LastName":"Edwards","Company":"ADOBE",
+"Address":"New York, USA","State":"New York",
+"City":"New York City","ZipCode":"10001","MobileNumber":"1234567890"}
+,
+"SecondUser":
+{"name":"TestUser11","Email":"TestUser11@gmail.com","Password":"TestUser@11",
+"FirstName":"Jane","LastName":"Doe","Company":"ADOBE",
+"Address":"Los Angeles, USA","State":"California",
+"City":"Los Angeles","ZipCode":"90001","MobileNumber":"0987654321"}
+
+}
+

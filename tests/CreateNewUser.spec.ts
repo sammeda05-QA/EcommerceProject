@@ -1,13 +1,15 @@
 import{test,expect} from "../fixtures/ProjectFixtures";
+import user from "../test-data/user.json";
 
 test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await RegisterUser.NewCustomerRegestration("TestUser2","TestUser123456@test.com");
+    await RegisterUser.NewCustomerRegestration(user.firstUser.name,user.firstUser.Email);
 
-    await createNewUser.CreateNewUser("Test@123","Test","Testing","TestersPride","HAL 2nd stage"
-        ,"Bihar","Gaya","123498","123456789"
+    await createNewUser.CreateNewUser(user.firstUser.Password,user.firstUser.FirstName,user.firstUser.LastName,
+        user.firstUser.Company,user.firstUser.Address,user.firstUser.State,user.firstUser.City,
+        user.firstUser.ZipCode,user.firstUser.MobileNumber
     )
 
     await expect(page).toHaveURL("https://automationexercise.com/account_created");
