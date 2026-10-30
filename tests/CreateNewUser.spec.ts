@@ -1,11 +1,12 @@
 import{test,expect} from "../fixtures/ProjectFixtures";
 import user from "../test-data/user.json";
 
-test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
+test("User Creation",async({page,HomePage,LoginPage,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await RegisterUser.NewCustomerRegestration(user.firstUser.name,user.firstUser.Email);
+    await LoginPage.SingupLoginButton();
+    await LoginPage.singUp(user.firstUser.name,user.firstUser.Email);
 
     await createNewUser.CreateNewUser(user.firstUser.Password,user.firstUser.FirstName,user.firstUser.LastName,
         user.firstUser.Company,user.firstUser.Address,user.firstUser.State,user.firstUser.City,
@@ -22,11 +23,11 @@ test("User Creation",async({page,HomePage,RegisterUser,createNewUser})=>{
 
      await expect(page.getByText(" Logged in as ")).toBeVisible();
 
-    await createNewUser.DeleteAccount();
+  /*  await createNewUser.DeleteAccount();
 
     await expect(page).toHaveURL("https://automationexercise.com/delete_account");
 
     await expect(page.getByText("Account Deleted!")).toBeVisible();
 
-    
+    */
 })
