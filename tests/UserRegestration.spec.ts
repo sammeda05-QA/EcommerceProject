@@ -6,9 +6,9 @@ test.beforeEach(async({HomePage})=>{
 })
 
 
-test("Valid User Regestraion",async({page,RegisterUser})=>{
+test("Valid User Regestraion",async({page,LoginPage})=>{
 
-    await RegisterUser.NewCustomerRegestration("TestUser","TestUser@kaplam.com");
+    await LoginPage.Login("TestUser","TestUser@kaplam.com");
 
     await expect(page).toHaveURL("https://automationexercise.com/signup");
     const Text = page.getByText("Enter Account Information");
@@ -17,9 +17,9 @@ test("Valid User Regestraion",async({page,RegisterUser})=>{
 
 })
 
-test("Duplicate Email Validation",async({page,RegisterUser})=>{
+test("Duplicate Email Validation",async({page,LoginPage})=>{
 
-        await RegisterUser.NewCustomerRegestration("abc","abc@gmail.com");
+        await LoginPage.Login("abc","abc@gmail.com");
 
         const Error = page.getByText("Email Address already exist!");
 

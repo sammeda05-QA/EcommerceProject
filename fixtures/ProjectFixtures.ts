@@ -2,7 +2,7 @@ import {test as base} from "@playwright/test";
 
 import { homePage} from "../pages/Homepage";
 import{loginPage} from "../pages/LoginPage";
-import{CreateNewUser} from "../pages/CrateUser";
+import{CreateNewUser} from "../pages/CreateUser";
 
 type MyFixtures={
     HomePage:homePage;

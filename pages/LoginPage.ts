@@ -10,6 +10,9 @@ export class loginPage{
     private readonly LoginEmail:Locator;
     private readonly LoginPassword:Locator;
     private readonly LoginButton:Locator;
+    private readonly DeleteAccountBtn:Locator; 
+    private readonly LogoutBtn:Locator;
+
 
     constructor(page:Page){
         this.page=page;
@@ -20,6 +23,8 @@ export class loginPage{
         this.LoginEmail=page.getByPlaceholder("Email Address").first();
         this.LoginPassword=page.getByPlaceholder("Password").first();
         this.LoginButton=page.getByRole("button",{name:'Login',exact:true}); 
+        this.DeleteAccountBtn=page.getByRole("link",{name:" Delete Account"});
+        this.LogoutBtn=page.getByRole("link",{name:' Logout'});
     }
 
     async SingupLoginButton(){
@@ -40,8 +45,13 @@ export class loginPage{
         await this.LoginButton.click();
     }
 
+    async DeleteAccount(){
+        await this.DeleteAccountBtn.click();
+    }
 
-
+    async LogOut(){
+        await this.LogoutBtn.click();
+    }
 
 
 }

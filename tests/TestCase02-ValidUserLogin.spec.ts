@@ -14,6 +14,10 @@ test("Login User with correct email and password",async({page,HomePage,LoginPage
     await LoginPage.Login(user.firstUser.Email,user.firstUser.Password);
 
     await expect(page.getByText(" Logged in as ")).toBeVisible();
+
+    await LoginPage.DeleteAccount();
+
+    await expect(page.getByText("ACCOUNT DELETED!")).toBeVisible();
      
 
 

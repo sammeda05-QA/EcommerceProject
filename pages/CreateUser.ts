@@ -19,7 +19,7 @@ export class CreateNewUser{
         private readonly ZipCode:Locator;
         private readonly MobileNumber:Locator;
         private readonly CreateAccountBtn:Locator;
-                private readonly Continue:Locator;
+        private readonly Continue:Locator;
         private readonly deleteAccount:Locator;
 
     constructor(page:Page){
