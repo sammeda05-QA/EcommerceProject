@@ -5,7 +5,8 @@ test("User Creation",async({page,HomePage,LoginPage,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await LoginPage.SingupLoginButton();
+    await HomePage.SignupLoginPage();
+    
     await LoginPage.singUp(user.firstUser.name,user.firstUser.Email);
 
     await createNewUser.CreateNewUser(user.firstUser.Password,user.firstUser.FirstName,user.firstUser.LastName,

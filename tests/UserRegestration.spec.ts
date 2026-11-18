@@ -3,6 +3,7 @@ import{test,expect} from "../fixtures/ProjectFixtures";
 test.beforeEach(async({HomePage})=>{
 
         await HomePage.ProjectHomePage();
+        await HomePage.SignupLoginPage();
 })
 
 

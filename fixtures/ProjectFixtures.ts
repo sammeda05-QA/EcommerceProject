@@ -3,12 +3,13 @@ import {test as base} from "@playwright/test";
 import { homePage} from "../pages/Homepage";
 import{loginPage} from "../pages/LoginPage";
 import{CreateNewUser} from "../pages/CreateUser";
+import {Contactus} from "../pages/ContactusPage";
 
 type MyFixtures={
     HomePage:homePage;
     LoginPage:loginPage;
     createNewUser:CreateNewUser;
-
+    ContactUS:Contactus;
 }
 
 export const test = base.extend<MyFixtures>({
@@ -27,6 +28,11 @@ export const test = base.extend<MyFixtures>({
     createNewUser:async({page},use)=>{
         const createNewUser = new CreateNewUser(page);
         await use(createNewUser);
+    }
+,
+    ContactUS:async({page},use)=>{
+        const ContactUS= new Contactus(page);
+        await use(ContactUS);
     }
 
 })
