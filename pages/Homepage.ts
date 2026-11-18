@@ -15,10 +15,10 @@ export class homePage{
     constructor (page:Page){
 
         this.page=page;
-        this.Products=page.getByRole("link",{name:' Products'});
+        this.Products=page.getByRole("link",{name:' Products'}).first();
         this.Cart=page.getByRole("link",{name:' Cart'});
         this.SignUpLogin=page.getByRole("link",{name:' Signup / Login'});
-        this.TestCases=page.getByRole("link",{name:' Test Cases'});
+        this.TestCases=page.getByRole("link",{name:' Test Cases',exact:true});
         this.APITesting=page.getByRole("link",{name:' API Testing'});
         this.VideoTutorials=page.getByRole("link",{name:' Video Tutorials'});
         this.ContactUs=page.getByRole("link",{name:' Contact us'});
@@ -37,5 +37,13 @@ export class homePage{
 
     async SignupLoginPage(){
         await this.SignUpLogin.click();
+    }
+
+    async TestCasePage(){
+        await this.TestCases.click();
+    }
+
+    async ProductsPage(){
+        await this.Products.click();
     }
 }
