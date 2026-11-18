@@ -6,8 +6,12 @@ test("Verify Logout User",async({page,HomePage,LoginPage,createNewUser})=>{
 
     await HomePage.ProjectHomePage();
 
-    await LoginPage.SingupLoginButton();
+    await HomePage.SignupLoginPage();
     await LoginPage.singUp(user.firstUser.name,user.firstUser.Email);
+
+    if(await page.getByText("Email Address already exist!").isVisible){
+        console.log("Email Already exists,Cannot proceed Further");
+    }
 
     await createNewUser.CreateNewUser(user.firstUser.Password,user.firstUser.FirstName,user.firstUser.LastName,
         user.firstUser.Company,user.firstUser.Address,user.firstUser.State,user.firstUser.City,

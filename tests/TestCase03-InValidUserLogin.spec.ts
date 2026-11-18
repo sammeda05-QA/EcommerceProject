@@ -6,7 +6,7 @@ test("Login User with incorrect email and password",async({page,HomePage,LoginPa
 
     await HomePage.ProjectHomePage();
 
-    await LoginPage.SingupLoginButton();
+    await HomePage.SignupLoginPage();
 
     await expect(page.getByText("Login to your account")).toBeVisible();
     await expect(page.getByText("New User Signup!")).toBeVisible();

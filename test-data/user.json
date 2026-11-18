@@ -14,6 +14,10 @@
 
 "InvlaidUser":
 {"Email":"TestUser11@gmail.com","Password":"TestUser@11"}
+,
 
+"ContactUSuser":
+{"name":"AdminUser","Email":"adminuser@automation.com","subject":"Test","message":"This is a Automation Test"
+}
 }
 
