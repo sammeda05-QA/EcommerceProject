@@ -16,7 +16,7 @@ constructor (page:Page){
     this.AllProducts=page.getByText("All Products").nth(1);
     this.Category=page.getByText("Category").first();
     this.SearchProduct=page.getByPlaceholder("Search Product");
-    this.SearchButton=page.locator("#submit_search").nth(1);
+    this.SearchButton=page.locator('//button[@id="submit_search"]');
     this.Women=page.getByRole("link",{name:'WOMEN'}).first();
     this.Men=page.getByRole("link",{name:'MEN'}).first();
     this.Kids=page.getByRole("link",{name:'KIDS'}).first();
@@ -29,6 +29,10 @@ async ViewProduct(){
     await this.FirstProduct.click();
 }
 
+async Searchproduct(ProductName:string){
+    await this.SearchProduct.fill(ProductName);
+    await this.SearchButton.click();
+}
 
 
 
