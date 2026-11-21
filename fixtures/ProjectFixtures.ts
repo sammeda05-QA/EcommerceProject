@@ -7,6 +7,7 @@ import {Contactus} from "../pages/ContactusPage";
 import{testCase} from "../pages/TestCasesPage";
 import {Products} from "../pages/ProductPage";
 import{productDetails} from "../pages/ProductDetailsPage";
+import{cartPage} from "../pages/CartPage";
 
 type MyFixtures={
     HomePage:homePage;
@@ -16,6 +17,7 @@ type MyFixtures={
     TestCase:testCase;
     ProductsPage:Products;
     ProductDetails:productDetails;
+    CartPage:cartPage;
 }
 
 export const test = base.extend<MyFixtures>({
@@ -55,6 +57,11 @@ export const test = base.extend<MyFixtures>({
     ProductsPage:async({page},use)=>{
         const ProductsPage=new Products(page);
         await use(ProductsPage);
+    }
+,
+    CartPage:async({page},use)=>{
+        const CartPage=new cartPage(page);
+        await use(CartPage);
     }
 })
 

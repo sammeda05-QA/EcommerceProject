@@ -8,7 +8,7 @@ export class productDetails{
     private readonly Category:Locator;
     private readonly Price:Locator;
     private readonly Quantity:Locator;
-  //  private readonly AddToCart:Locator;
+   private readonly AddToCart:Locator;
     private readonly Availability:Locator;
     private readonly Condition:Locator;
     private readonly Brand:Locator;
@@ -23,6 +23,7 @@ constructor(page:Page){
         this.Condition=page.getByText("Condition:");
         this.Brand=page.getByText("Brand:");
         this.Quantity=page.locator("#quantity").nth(1);
+        this.AddToCart=page.locator('//a[@data-product-id="1"]').first();
 }
 
     async verifyProductDetailsVisible(){
@@ -37,5 +38,8 @@ constructor(page:Page){
 
     }
 
+    async addToCart(){
+        await this.AddToCart.click();
+    }
 
 }

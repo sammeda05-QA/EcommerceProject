@@ -9,7 +9,10 @@ export class Products{
     private readonly Women :Locator;
     private readonly Men:Locator;
     private readonly Kids:Locator;
-    private readonly FirstProduct:Locator;
+    private readonly Product:Locator;
+   // private readonly AddToCart:Locator;
+    private readonly ShoppingBtn:Locator;
+    private readonly ViewCart:Locator;
 
 constructor (page:Page){
     this.page=page;
@@ -20,13 +23,18 @@ constructor (page:Page){
     this.Women=page.getByRole("link",{name:'WOMEN'}).first();
     this.Men=page.getByRole("link",{name:'MEN'}).first();
     this.Kids=page.getByRole("link",{name:'KIDS'}).first();
-    this.FirstProduct = page.locator('//a[@href="/product_details/1"]');
+    this.Product = page.locator('.features_items .product-image-wrapper');
+   // this.AddToCart=page.locator('//a[@data-product-id="1"]').first();
+    this.ShoppingBtn=page.getByRole("button",{name:'Continue Shopping'});
+    this.ViewCart=page.getByRole("link",{name:'View Cart'});
+
 
 }
 
 
-async ViewProduct(){
-    await this.FirstProduct.click();
+async ViewProduct(index:number){
+    const product= this.Product.nth(index);
+    await product.click();
 }
 
 async Searchproduct(ProductName:string){
@@ -35,6 +43,22 @@ async Searchproduct(ProductName:string){
 }
 
 
+    async SelectProduct(index:number){
+    const product= this.Product.nth(index);
+
+    }
+
+    async addProduct(id:number){
+        await this.page.locator(`//a[@data-product-id="${id}"]`).first().click();
+    }
+
+    async ContinueShopping(){
+        await this.ShoppingBtn.click();
+    }
+
+    async viewCart(){
+        await this.ViewCart.click();
+    }
 
 
 
