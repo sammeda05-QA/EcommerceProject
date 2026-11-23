@@ -1,4 +1,4 @@
-import {Page,Locator} from "@playwright/test";
+import {Page,Locator, expect} from "@playwright/test";
 
 export class homePage{
 
@@ -10,6 +10,9 @@ export class homePage{
     private readonly APITesting:Locator;
     private readonly VideoTutorials:Locator;
     private readonly ContactUs:Locator;
+    private readonly subscription:Locator;
+    private readonly email:Locator;
+    private readonly emailSubscribe:Locator;
 
     
     constructor (page:Page){
@@ -22,7 +25,9 @@ export class homePage{
         this.APITesting=page.getByRole("link",{name:' API Testing'});
         this.VideoTutorials=page.getByRole("link",{name:' Video Tutorials'});
         this.ContactUs=page.getByRole("link",{name:' Contact us'});
-
+        this.subscription=page.getByText("Subscription").first();
+        this.email=page.getByPlaceholder("Your email address");
+        this.emailSubscribe=page.locator("#subscribe");
     }
 
 
@@ -45,5 +50,14 @@ export class homePage{
 
     async ProductsPage(){
         await this.Products.click();
+    }
+
+    async VerifySubscription(){
+        await expect(this.subscription).toBeVisible();
+    }
+
+    async SubscribeEmail(emailID:string){
+        await this.email.fill(emailID);
+        await this.emailSubscribe.click();
     }
 }

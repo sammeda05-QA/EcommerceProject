@@ -42,4 +42,9 @@ constructor(page:Page){
         await this.AddToCart.click();
     }
 
+    async AddQuntity(qty:number ){
+        await this.Quantity.press('Backspace');
+        await this.Quantity.fill(`${qty}`);
+    }
+
 }
