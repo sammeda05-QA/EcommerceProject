@@ -10,6 +10,7 @@ export class Products{
     private readonly Men:Locator;
     private readonly Kids:Locator;
     private readonly Product:Locator;
+  //  private readonly viewProduct:Locator;
    // private readonly AddToCart:Locator;
     private readonly ShoppingBtn:Locator;
     private readonly ViewCart:Locator;
@@ -27,12 +28,13 @@ constructor (page:Page){
    // this.AddToCart=page.locator('//a[@data-product-id="1"]').first();
     this.ShoppingBtn=page.getByRole("button",{name:'Continue Shopping'});
     this.ViewCart=page.getByRole("link",{name:'View Cart'});
+    //this.viewProduct=page.getByRole("link",{name:`/product_details/${}`})
 
 
 }
 
 
-async ViewProduct(index:number){
+async Products(index:number){
     const product= this.Product.nth(index);
     await product.click();
 }
@@ -60,6 +62,12 @@ async Searchproduct(ProductName:string){
         await this.ViewCart.click();
     }
 
+    async ViewProduct(id:number){
+
+        const viewProduct=this.page.getByRole("link",{name:`/product_details/${id}`});
+        await viewProduct.click();
+
+    }
 
 
 
